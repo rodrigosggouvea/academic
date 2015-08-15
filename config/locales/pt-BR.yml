@@ -1,9 +1,16 @@
 pt-BR:
   helpers:
     links:
-      cancel: "Cancelar"
+      confirm: "Tem certeza?"
+      cancel: "Voltar"
+      back: "Voltar"
+      new: "Cadastrar"
+      edit: "Editar"
+      destroy: "Deletar"
     titles:
       new: "Cadastrar %{model}"
+      edit: "Editar %{model}"
+    actions: "Ações"
   errors:
     format: "%{message}"
   titles:
@@ -157,6 +164,10 @@ pt-BR:
       course:
         name: "Nome"
         description: "Descrição"
+        created_at: "Cadastrado em"
+        status_active: "Ativo"
+        status_deactivated: "Desativado"
       student:
         name: "Nome"
         register_number: "Matrícula"
+        created_at: "Cadastrado em"

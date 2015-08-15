@@ -26,12 +26,11 @@
           %span.icon-bar
           %span.icon-bar
         %a.navbar-brand(href="#") ProficiencyTest
-        .navbar-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav
-            %li= link_to "Link 1", "/path1"
-            %li= link_to "Link 2", "/path2"
-            %li= link_to "Link 3", "/path3"
-            %li= link_to "Link 3", "/path3"
+        - if current_user
+          .navbar-collapse.collapse.navbar-responsive-collapse
+            %ul.nav.navbar-nav
+              %li= link_to current_user.email, "/path1"
+              %li= link_to "Sair", "/path2"
 
     .container
       .row
@@ -40,11 +39,15 @@
           = yield
         .col-lg-3
           .well.sidebar-nav
-            %h3 Sidebar
+            %h3 Menu
             %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li.nav-header Cursos
+              %li= link_to "Listar", courses_path
+              %li= link_to "Cadastrar", new_course_path
+              %li.nav-header Alunos
+              %li= link_to "Listar", students_path
+              %li= link_to "Cadastrar", new_student_path
+              %li.nav-header Matrícula
+              %li= link_to "Matricular Alunos", ""
       %footer
         %p &copy; Company 2015
