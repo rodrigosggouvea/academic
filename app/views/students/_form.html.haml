@@ -1,19 +1,9 @@
-= form_for @student do |f|
-  - if @student.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@student.errors.count, "error")} prohibited this student from being saved:"
-      %ul
-        - @student.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :register_number
-    = f.text_field :register_number
-  .field
-    = f.label :status
-    = f.number_field :status
-  .actions
-    = f.submit 'Save'
+= simple_form_for @student, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  = error_span(@student[:name])
+  = f.input :register_number
+  = error_span(@student[:register_number])
+  = f.input :status
+  = error_span(@student[:status])
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), students_path, :class => 'btn btn-default'

@@ -1,13 +1,21 @@
-%p#notice= notice
+- model_class = Course
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
 %p
-  %strong Name:
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
   = @course.name
 %p
-  %strong Description:
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
   = @course.description
 %p
-  %strong Status:
+  %strong= model_class.human_attribute_name(:status) + ':'
+  %br
   = @course.status
-= link_to 'Edit', edit_course_path(@course)
-|
-= link_to 'Back', courses_path
+
+
+= link_to t('.back', :default => t("helpers.links.back")), courses_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_course_path(@course), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), course_path(@course), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
