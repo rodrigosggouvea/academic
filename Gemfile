@@ -25,7 +25,7 @@ gem 'rails-assets-lodash', '~> 2.4.1'
 gem 'simple_form', '~> 3.0.2'
 gem 'haml', '~> 4.0.4'
 gem 'haml-rails'
-
+gem "twitter-bootstrap-rails"
 gem 'enumerate_it', '~> 1.2.0'
 gem 'pg', '~> 0.17.1'
 
