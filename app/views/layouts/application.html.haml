@@ -38,16 +38,18 @@
           = bootstrap_flash
           = yield
         .col-lg-3
-          .well.sidebar-nav
-            %h3 Menu
-            %ul.nav.nav-list
-              %li.nav-header Cursos
-              %li= link_to "Listar", courses_path
-              %li= link_to "Cadastrar", new_course_path
-              %li.nav-header Alunos
-              %li= link_to "Listar", students_path
-              %li= link_to "Cadastrar", new_student_path
-              %li.nav-header Matrícula
-              %li= link_to "Matricular Alunos", ""
+          - if current_user
+            .well.sidebar-nav
+              %h3 Menu
+              %ul.nav.nav-list
+                %li.nav-header Cursos
+                %li= link_to "Listar", courses_path
+                %li= link_to "Cadastrar", new_course_path
+                %li.nav-header Alunos
+                %li= link_to "Listar", students_path
+                %li= link_to "Cadastrar", new_student_path
+                %li.nav-header Matrículas
+                %li= link_to "Listar", classrooms_path
+                %li= link_to "Matricular Alunos", new_classroom_path
       %footer
-        %p &copy; Company 2015
+        %p &copy; Rodrivo Gouvea 2015

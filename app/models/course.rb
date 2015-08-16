@@ -1,4 +1,6 @@
 class Course < ActiveRecord::Base
+  has_many :classrooms
+  has_many :students, through: :classrooms
   enum status: [:active, :deactivated]
   validates :name, presence: true
   validates :description, presence: true

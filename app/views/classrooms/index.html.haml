@@ -1,0 +1,25 @@
+- model_class = Classroom
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+- if @classrooms
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= model_class.human_attribute_name(:id)
+        %th= model_class.human_attribute_name(:course_id)
+        %th= model_class.human_attribute_name(:student_id)
+        %th= model_class.human_attribute_name(:student_register_number)
+        %th= model_class.human_attribute_name(:entry_at)
+        %th=t '.actions', :default => t("helpers.actions")
+    %tbody
+      - @classrooms.each do |classroom|
+        %tr
+          %td= link_to classroom.id, classroom_path(classroom)
+          %td= classroom.course.name
+          %td= classroom.student.name
+          %td= classroom.student.register_number
+          %td= classroom.entry_at
+          %td
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), classroom_path(classroom), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_classroom_path, :class => 'btn btn-primary'

@@ -160,6 +160,7 @@ pt-BR:
     models:
       course: "Curso"
       student: "Aluno"
+      classroom: "Matrícula"
     attributes:
       course:
         name: "Nome"
@@ -172,4 +173,10 @@ pt-BR:
         register_number: "Matrícula"
         status_active: "Ativo"
         status_deactivated: "Desativado"
+        created_at: "Cadastrado em"
+      classroom:
+        student_id: "Aluno"
+        student_register_number: "Matrícula"
+        course_id: "Curso"
+        entry_at: "Matriculado em"
         created_at: "Cadastrado em"

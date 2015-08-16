@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
+
   resources :students
-
-  get 'courses/index'
-
+  resources :classrooms, only: [:index, :new, :create, :destroy]
   resources :courses
-
   devise_for :users
+  root 'courses#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'courses#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
