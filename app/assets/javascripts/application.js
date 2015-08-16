@@ -27,4 +27,27 @@ $(document).ready(function(){
     $(".new-form-container").hide();
     $(".open-new-form-container").show();
   });
+
+  $(".submit-button").click(function(e){
+    e.preventDefault();
+    var valid = true;
+    $(".required").next().each(function(index, field){
+      field = $(field);
+      console.log("valor do field:");
+      console.log(field);
+      if(field.val() == ""){
+        valid = false;
+        field.parent().addClass("has-error");
+        field.parent().removeClass("has-success");
+      } else {
+        field.parent().addClass("has-success");
+        field.parent().removeClass("has-error");
+      }
+    });
+    if(valid){
+      $('form').submit();
+    } else {
+      alert("Houveram erros no formulário. Por favor revise-o.");
+    }
+  });
 });
