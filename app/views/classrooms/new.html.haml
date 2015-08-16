@@ -7,11 +7,13 @@
     = label_tag :course_id, "Curso", class: "required" 
     = select_tag :course_id, options_for_select(@courses.map{|c| [c.name, c.id]}), class: "form-control" 
     %span.help-block Selecione o curso (obrigatório)
+  .form-group.checkbox-required-alert
+    %span.help-block Selecione pelo menos um aluno:
   %table.table.table-striped
     %tbody
       - @students.each do |student|
         %tr
-          %td= check_box_tag 'student_ids[]', student.id
+          %td= check_box_tag 'student_ids[]', student.id, nil, class: "required-check"
           %td= student.name
           %td= student.register_number
 

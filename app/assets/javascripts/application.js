@@ -33,8 +33,6 @@ $(document).ready(function(){
     var valid = true;
     $(".required").next().each(function(index, field){
       field = $(field);
-      console.log("valor do field:");
-      console.log(field);
       if(field.val() == ""){
         valid = false;
         field.parent().addClass("has-error");
@@ -44,6 +42,14 @@ $(document).ready(function(){
         field.parent().removeClass("has-error");
       }
     });
+    if(($(".required-check").size() > 0) && ($(".required-check:checked").size() == 0)){
+      valid = false;
+      $(".checkbox-required-alert").addClass("has-error");
+      $(".checkbox-required-alert").removeClass("has-success");
+    } else {
+      $(".checkbox-required-alert").addClass("has-success");
+      $(".checkbox-required-alert").removeClass("has-error");
+    }
     if(valid){
       $('form').submit();
     } else {
