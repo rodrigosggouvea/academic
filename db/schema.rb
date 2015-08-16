@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150815174438) do
   create_table "courses", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "status"
+    t.integer  "status",      default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150815174438) do
   create_table "students", force: true do |t|
     t.string   "name"
     t.string   "register_number"
-    t.integer  "status"
+    t.integer  "status",          default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,9 +1,14 @@
-= simple_form_for @student, :html => { :class => 'form-horizontal' } do |f|
-  = f.input :name
-  = error_span(@student[:name])
-  = f.input :register_number
-  = error_span(@student[:register_number])
-  = f.input :status
-  = error_span(@student[:status])
+= simple_form_for @student, :html => { :class => 'form-inline' } do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+  .form-group
+    = f.label :register_number
+    = f.text_field :register_number, class: "form-control"
+  - unless @student.new_record?
+    .form-group
+      = f.label :status
+      = f.select :status, options_for_select(Student.statuses_to_s, selected: @student.status), {} , class: "form-control"
+
   = f.button :submit, :class => 'btn-primary'
-  = link_to t('.cancel', :default => t("helpers.links.cancel")), students_path, :class => 'btn btn-default'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), "#", :class => 'btn btn-default close-new-form-container'

@@ -5,6 +5,7 @@ class CoursesController < ApplicationController
   respond_to :html
 
   def index
+    @course = Course.new
     @courses = Course.all
     respond_with(@courses)
   end

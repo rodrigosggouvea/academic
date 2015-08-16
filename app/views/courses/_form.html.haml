@@ -11,4 +11,4 @@
       = f.select :status, options_for_select(Course.statuses_to_s, selected: @course.status), {} , class: "form-control"
       
   = f.button :submit, :class => 'btn-primary'
-  = link_to t('.cancel', :default => t("helpers.links.cancel")), courses_path, :class => 'btn btn-default'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), "#", :class => 'btn btn-default close-new-form-container'

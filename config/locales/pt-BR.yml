@@ -2,7 +2,7 @@ pt-BR:
   helpers:
     links:
       confirm: "Tem certeza?"
-      cancel: "Voltar"
+      cancel: "Cancelar"
       back: "Voltar"
       new: "Cadastrar"
       edit: "Editar"
@@ -170,4 +170,6 @@ pt-BR:
       student:
         name: "Nome"
         register_number: "Matrícula"
+        status_active: "Ativo"
+        status_deactivated: "Desativado"
         created_at: "Cadastrado em"

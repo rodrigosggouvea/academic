@@ -13,5 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  $(".open-new-form-container").click(function(e){
+    e.preventDefault();
+    $(".new-form-container").show();
+    $(this).hide();
+  });
+
+  $(".close-new-form-container").click(function(e){
+    e.preventDefault();
+    $(".new-form-container").hide();
+    $(".open-new-form-container").show();
+  });
+});

@@ -16,10 +16,13 @@
         %td= link_to student.id, student_path(student)
         %td= student.name
         %td= student.register_number
-        %td= student.status
+        %td= student.status_to_s
         %td=l student.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_student_path(student), :class => 'btn btn-default btn-xs'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), student_path(student), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
 
-= link_to t('.new', :default => t("helpers.links.new")), new_student_path, :class => 'btn btn-primary'
+= link_to t('.new', :default => t("helpers.links.new")), "#", :class => 'btn btn-primary open-new-form-container'
+.new-form-container
+  %hr
+  = render 'form'

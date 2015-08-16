@@ -5,6 +5,7 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.all
+    @student = Student.new
     respond_with(@students)
   end
 
