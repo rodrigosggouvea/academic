@@ -12,9 +12,10 @@ class ClassroomsController < ApplicationController
   end
 
   def create
-    errors = Classroom.create_by_course(params)
-    if errors.any?
-      redirect_to new_classroom_path
+    students = Classroom.create_by_course(params)
+    if students.any?
+      student_names = Student.find(students).collect(&:name).join(',')
+      redirect_to new_classroom_path, notice: "Os alunos #{student_names} já haviam sido matriculados a esse curso, os outros foram matriculados com sucesso."
     else
       redirect_to classrooms_path, notice: "Alunos matriculados com sucesso."
     end
